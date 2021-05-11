@@ -47,7 +47,7 @@ export default class Board extends React.Component {
    componentDidMount() {
      document.addEventListener('keydown', this.onKeyPressHandler)
      this.createGrid(null, false);
-     setInterval(() => {
+     window.fnInterval = setInterval(() => {
       this.moveSnake();
      }, 1100)
    }
@@ -85,7 +85,6 @@ export default class Board extends React.Component {
       j: j,
     })
 
-    // Snake does potty, only when not eating
     let {food} = this.state;
     if (i === this.state.food.i && j === this.state.food.j) {
       food = this.getRandomFood();
@@ -116,6 +115,11 @@ export default class Board extends React.Component {
    this.setState({...this.state, snake: {...this.state.snake ,head: {i: currentRow, j:currentColumn}}, grid: grid, food: food, die: die})
 
    }
+
+   componentWillUnmount() {
+    document.body.removeEventListener('keydown', this.onKeyPressHandler);
+    clearInterval(window.fnInterval);
+  }
 
    render() {
      let gridContent;
