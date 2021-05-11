@@ -1,0 +1,25 @@
+.board-cell {
+  width: 40px;
+  height: 40px;
+  /* outline: 1px solid black; */
+  margin: 0;
+  background-color: rgb(230, 222, 222);
+  display: inline-block;
+}
+
+.board-container {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.is_Snake {
+  background-color: rgb(197, 192, 192);
+}
+
+.is_Food {
+  background-color: rgba(94, 170, 94, 0.527);
+}
